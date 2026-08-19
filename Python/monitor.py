@@ -263,9 +263,11 @@ def take_screenshot(browser, url: str, destination: Path) -> ScreenshotResult:
         render_time_ms = round((time.perf_counter() - start) * 1000)
 
         destination.parent.mkdir(parents=True, exist_ok=True)
-        # Écrit vers un fichier temporaire puis remplace pour un "overwrite" atomique
+        # Écrit vers un fichier temporaire puis remplace pour un "overwrite" atomique.
+        # type="png" est requis explicitement : Playwright déduit sinon le format
+        # d'après l'extension du fichier, et ".tmp" n'est pas reconnu.
         tmp_path = destination.with_suffix(destination.suffix + ".tmp")
-        page.screenshot(path=str(tmp_path), full_page=False)
+        page.screenshot(path=str(tmp_path), type="png", full_page=False)
         tmp_path.replace(destination)
         return ScreenshotResult(error=None, render_time_ms=render_time_ms)
 
