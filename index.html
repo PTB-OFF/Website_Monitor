@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Monitoring Dashboard</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span class="topbar__glyph" aria-hidden="true">
+        <span class="pulse-dot pulse-dot--online"></span>
+      </span>
+      <div class="topbar__titles">
+        <h1>Website Monitoring Dashboard</h1>
+        <p class="topbar__subtitle">Surveillance quotidienne de disponibilité</p>
+      </div>
+    </div>
+
+    <div class="topbar__actions">
+      <span id="last-update" class="last-update">
+        <span class="last-update__label">Dernière actualisation</span>
+        <span class="last-update__value mono" id="last-update-value">—</span>
+      </span>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Basculer le thème clair / sombre" title="Basculer le thème">
+        <svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+
+    <section class="stats" aria-label="Statistiques globales">
+      <div class="stat-card">
+        <span class="stat-card__value mono" id="stat-total">0</span>
+        <span class="stat-card__label">Sites surveillés</span>
+      </div>
+      <div class="stat-card stat-card--online">
+        <span class="stat-card__value mono" id="stat-online">0</span>
+        <span class="stat-card__label">Online</span>
+      </div>
+      <div class="stat-card stat-card--down">
+        <span class="stat-card__value mono" id="stat-down">0</span>
+        <span class="stat-card__label">Down</span>
+      </div>
+      <div class="stat-card stat-card--uptime">
+        <span class="stat-card__value mono" id="stat-uptime">0%</span>
+        <span class="stat-card__label">Disponibilité globale</span>
+      </div>
+    </section>
+
+    <section class="sites" aria-label="Liste des sites">
+      <div id="sites-grid" class="sites-grid">
+        <!-- Les tuiles sont générées dynamiquement par JS/script.js -->
+      </div>
+
+      <div id="empty-state" class="state-panel state-panel--hidden">
+        <p class="state-panel__title">Aucun site à afficher</p>
+        <p class="state-panel__text">Ajoutez des sites dans <code>config/list_url.txt</code> pour les voir apparaître ici après la prochaine vérification.</p>
+      </div>
+
+      <div id="error-state" class="state-panel state-panel--hidden">
+        <p class="state-panel__title">Impossible de charger les données</p>
+        <p class="state-panel__text">Le fichier <code>data/status.json</code> est introuvable ou invalide. Vérifiez que le monitoring a bien été exécuté.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Statut vérifié automatiquement une fois par jour via GitHub Actions · Données issues de <code>data/status.json</code></p>
+  </footer>
+
+  <script src="JS/script.js"></script>
+</body>
+</html>

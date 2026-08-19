@@ -1,0 +1,60 @@
+name: Website Monitoring
+
+on:
+  schedule:
+    # Tous les jours à 06:00 UTC
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: website-monitoring
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Récupérer le repository
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Installer les dépendances Python
+        run: pip install -r requirements.txt
+
+      - name: Installer Playwright + Chromium
+        run: python -m playwright install --with-deps chromium
+
+      - name: Exécuter le monitoring
+        run: python Python/monitor.py
+
+      - name: Vérifier les changements
+        id: git-check
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit et push des résultats
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: mise à jour du monitoring ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+          git push
+
+      - name: Aucun changement détecté
+        if: steps.git-check.outputs.changed == 'false'
+        run: echo "Aucun changement à commiter."

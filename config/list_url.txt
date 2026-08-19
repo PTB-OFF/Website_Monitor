@@ -1,0 +1,16 @@
+# ------------------------------------------------------------------
+# config/list_url.txt
+#
+# Source unique de vérité des sites surveillés.
+# Une ligne = un site : "Nom du site, URL"
+#
+# - Les lignes vides sont ignorées.
+# - Les lignes commençant par # sont des commentaires.
+# - Les espaces autour du nom et de l'URL sont supprimés automatiquement.
+# - Aucune modification du code n'est nécessaire pour ajouter/supprimer un site.
+# ------------------------------------------------------------------
+
+# Sites Algorel
+Algorel, https://www.algorel.fr
+Au Fil Du Bain, https://www.aufildubain.fr
+Bleu Rouge, https://www.bleurouge.fr/
