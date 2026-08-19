@@ -169,6 +169,7 @@ Généré entièrement à chaque exécution à partir de `config/list_url.txt` :
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/algorel.png",
+      "render_time_ms": 842,
       "last_check": "2026-08-19 06:00:00"
     }
   ]
@@ -177,6 +178,20 @@ Généré entièrement à chaque exécution à partir de `config/list_url.txt` :
 
 Ce fichier est la seule source de données du frontend : aucun site n'est
 codé en dur dans `index.html` ou `JS/script.js`.
+
+`render_time_ms` est le temps de rendu complet de la page (navigation →
+événement `load`, DOM + ressources + styles + images chargés), mesuré par
+Playwright au moment même de la capture d'écran. Il vaut `null` si la page
+n'a pas pu être chargée.
+
+### Cache des captures d'écran
+
+Le nom de fichier d'une capture reste identique d'un run à l'autre
+(`screenshots/algorel.png`), donc les navigateurs la mettent en cache. Pour
+éviter d'afficher une ancienne capture après une mise à jour, `JS/script.js`
+ajoute automatiquement un paramètre `?v=<last_check>` à l'URL de l'image, ce
+qui force le rechargement dès que `data/status.json` indique une nouvelle
+heure de vérification — sans jamais renommer le fichier sur le disque.
 
 ---
 

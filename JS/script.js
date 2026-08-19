@@ -77,6 +77,12 @@
     return `${dd}/${mm}/${yyyy} ${hh}:${min}`;
   }
 
+  function formatRenderTime(ms) {
+    if (ms == null) return null;
+    if (ms < 1000) return `${ms} ms`;
+    return `${(ms / 1000).toFixed(2)} s`;
+  }
+
   /* --------------------------- Rendu stats -------------------------- */
 
   function renderStats(sites) {
@@ -105,10 +111,19 @@
     const url = escapeHtml(site.url);
     const httpCode = site.http_code != null ? escapeHtml(site.http_code) : "—";
     const lastCheck = formatDate(site.last_check);
-    const screenshot = site.screenshot ? escapeHtml(site.screenshot) : "";
+    const renderTime = formatRenderTime(site.render_time_ms);
 
-    const screenshotMarkup = screenshot
-      ? `<img src="${screenshot}" alt="Capture d'écran de ${name}" loading="lazy"
+    // Cache-busting : le nom de fichier de la capture reste stable d'un run
+    // à l'autre (ex. screenshots/algorel.png), donc les navigateurs la
+    // mettent en cache indéfiniment. On ajoute un paramètre de requête basé
+    // sur last_check pour forcer le rechargement dès qu'une nouvelle capture
+    // a été générée, sans renommer le fichier.
+    const screenshotSrc = site.screenshot
+      ? `${escapeHtml(site.screenshot)}?v=${encodeURIComponent(site.last_check || "")}`
+      : "";
+
+    const screenshotMarkup = screenshotSrc
+      ? `<img src="${screenshotSrc}" alt="Capture d'écran de ${name}" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=&quot;site-card__screenshot-fallback&quot;>Capture indisponible</div>';">`
       : `<div class="site-card__screenshot-fallback">Capture indisponible</div>`;
 
@@ -130,6 +145,10 @@
 
         <div class="site-card__meta">
           <span>HTTP <span class="mono ${httpClass}">${httpCode}</span></span>
+          ${renderTime ? `<span>Rendu : <span class="mono">${renderTime}</span></span>` : ""}
+        </div>
+
+        <div class="site-card__meta site-card__meta--secondary">
           <span>Vérifié : <span class="mono">${lastCheck}</span></span>
         </div>
 

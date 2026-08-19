@@ -28,6 +28,7 @@ import re
 import socket
 import ssl
 import sys
+import time
 import unicodedata
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -101,6 +102,7 @@ class SiteResult:
     status: str
     http_code: int | None
     screenshot: str
+    render_time_ms: int | None
     last_check: str
     error: str | None = None
 
@@ -229,11 +231,21 @@ def check_http(url: str) -> HttpCheckResult:
 # Screenshots (Playwright)
 # --------------------------------------------------------------------------
 
-def take_screenshot(browser, url: str, destination: Path) -> str | None:
-    """Charge la page principale et enregistre une capture d'écran.
+@dataclass
+class ScreenshotResult:
+    error: str | None
+    render_time_ms: int | None
+
+
+def take_screenshot(browser, url: str, destination: Path) -> ScreenshotResult:
+    """Charge la page principale, mesure le temps de rendu complet et
+    enregistre une capture d'écran.
+
+    Le "temps de rendu complet" est mesuré entre le début de la navigation
+    et l'événement `load` de la page (DOM + ressources + styles + images
+    chargés) — c'est le même instant qui déclenche la capture d'écran.
 
     Écrase toujours la capture précédente au même chemin.
-    Retourne un message d'erreur (str) en cas d'échec, sinon None.
     """
     context = None
     try:
@@ -246,21 +258,23 @@ def take_screenshot(browser, url: str, destination: Path) -> str | None:
         page.set_default_navigation_timeout(PLAYWRIGHT_NAV_TIMEOUT_MS)
         page.set_default_timeout(PLAYWRIGHT_NAV_TIMEOUT_MS)
 
+        start = time.perf_counter()
         page.goto(url, wait_until="load")
+        render_time_ms = round((time.perf_counter() - start) * 1000)
 
         destination.parent.mkdir(parents=True, exist_ok=True)
         # Écrit vers un fichier temporaire puis remplace pour un "overwrite" atomique
         tmp_path = destination.with_suffix(destination.suffix + ".tmp")
         page.screenshot(path=str(tmp_path), full_page=False)
         tmp_path.replace(destination)
-        return None
+        return ScreenshotResult(error=None, render_time_ms=render_time_ms)
 
     except PlaywrightTimeoutError:
-        return "Timeout Playwright lors du chargement de la page"
+        return ScreenshotResult(error="Timeout Playwright lors du chargement de la page", render_time_ms=None)
     except PlaywrightError as exc:
-        return f"Erreur Playwright : {exc}"
+        return ScreenshotResult(error=f"Erreur Playwright : {exc}", render_time_ms=None)
     except Exception as exc:  # garde-fou : ne jamais interrompre le traitement des autres sites
-        return f"Erreur inattendue lors de la capture : {exc}"
+        return ScreenshotResult(error=f"Erreur inattendue lors de la capture : {exc}", render_time_ms=None)
     finally:
         if context is not None:
             try:
@@ -317,9 +331,11 @@ def process_site(browser, site: Site) -> SiteResult:
     else:
         log.info("%s -> %s (HTTP %s)", site.name, status.upper(), http_result.http_code)
 
-    screenshot_error = take_screenshot(browser, site.url, screenshot_abs_path)
-    if screenshot_error:
-        log.warning("Capture indisponible pour %s : %s", site.name, screenshot_error)
+    screenshot_result = take_screenshot(browser, site.url, screenshot_abs_path)
+    if screenshot_result.error:
+        log.warning("Capture indisponible pour %s : %s", site.name, screenshot_result.error)
+    else:
+        log.info("%s -> rendu complet en %d ms", site.name, screenshot_result.render_time_ms)
 
     return SiteResult(
         name=site.name,
@@ -327,8 +343,9 @@ def process_site(browser, site: Site) -> SiteResult:
         status=status,
         http_code=http_result.http_code,
         screenshot=screenshot_rel_path,
+        render_time_ms=screenshot_result.render_time_ms,
         last_check=check_time,
-        error=http_result.error or screenshot_error,
+        error=http_result.error or screenshot_result.error,
     )
 
 
@@ -357,6 +374,7 @@ def main() -> int:
                         status="down",
                         http_code=None,
                         screenshot=f"screenshots/{site.slug}.png",
+                        render_time_ms=None,
                         last_check=now_str(),
                         error=str(exc),
                     )
@@ -378,6 +396,7 @@ def main() -> int:
                 "status": r.status,
                 "http_code": r.http_code,
                 "screenshot": r.screenshot,
+                "render_time_ms": r.render_time_ms,
                 "last_check": r.last_check,
             }
             for r in results
