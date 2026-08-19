@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-08-19 06:00:00",
+  "last_update": "2026-08-19 08:54:52",
   "sites": [
     {
       "name": "Algorel",
@@ -7,7 +7,7 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/algorel.png",
-      "last_check": "2026-08-19 06:00:00"
+      "last_check": "2026-08-19 08:54:36"
     },
     {
       "name": "Au Fil Du Bain",
@@ -15,15 +15,15 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/au-fil-du-bain.png",
-      "last_check": "2026-08-19 06:00:00"
+      "last_check": "2026-08-19 08:54:39"
     },
     {
-      "name": "Site exemple",
-      "url": "https://www.example.com",
-      "status": "down",
-      "http_code": 500,
-      "screenshot": "screenshots/site-exemple.png",
-      "last_check": "2026-08-19 06:00:00"
+      "name": "Bleu Rouge",
+      "url": "https://www.bleurouge.fr/",
+      "status": "online",
+      "http_code": 200,
+      "screenshot": "screenshots/bleu-rouge.png",
+      "last_check": "2026-08-19 08:54:45"
     }
   ]
 }
