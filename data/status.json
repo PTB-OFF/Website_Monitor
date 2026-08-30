@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-08-29 20:26:34",
+  "last_update": "2026-08-30 03:42:54",
   "sites": [
     {
       "name": "Algorel",
@@ -7,8 +7,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/algorel.png",
-      "render_time_ms": 2198,
-      "last_check": "2026-08-29 20:26:12"
+      "render_time_ms": 2116,
+      "last_check": "2026-08-30 03:42:33"
     },
     {
       "name": "Au Fil Du Bain",
@@ -16,8 +16,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/au-fil-du-bain.png",
-      "render_time_ms": 6221,
-      "last_check": "2026-08-29 20:26:15"
+      "render_time_ms": 6213,
+      "last_check": "2026-08-30 03:42:36"
     },
     {
       "name": "Bleu Rouge",
@@ -25,8 +25,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/bleu-rouge.png",
-      "render_time_ms": 9536,
-      "last_check": "2026-08-29 20:26:23"
+      "render_time_ms": 9090,
+      "last_check": "2026-08-30 03:42:44"
     }
   ]
 }
