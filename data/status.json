@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-10-05 13:39:04",
+  "last_update": "2026-10-05 18:27:37",
   "sites": [
     {
       "name": "Algorel",
@@ -7,8 +7,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/algorel.png",
-      "render_time_ms": 2616,
-      "last_check": "2026-10-05 13:38:38"
+      "render_time_ms": 2055,
+      "last_check": "2026-10-05 18:27:14"
     },
     {
       "name": "Au Fil Du Bain",
@@ -16,8 +16,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/au-fil-du-bain.png",
-      "render_time_ms": 7284,
-      "last_check": "2026-10-05 13:38:42"
+      "render_time_ms": 5731,
+      "last_check": "2026-10-05 18:27:18"
     },
     {
       "name": "Bleu Rouge",
@@ -25,8 +25,17 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/bleu-rouge.png",
-      "render_time_ms": 11367,
-      "last_check": "2026-10-05 13:38:51"
+      "render_time_ms": 8810,
+      "last_check": "2026-10-05 18:27:25"
+    },
+    {
+      "name": "IIS Commande de Cable",
+      "url": "https://achats-groupes.algorel.fr/",
+      "status": "online",
+      "http_code": 200,
+      "screenshot": "screenshots/iis-commande-de-cable.png",
+      "render_time_ms": 779,
+      "last_check": "2026-10-05 18:27:35"
     }
   ]
 }
