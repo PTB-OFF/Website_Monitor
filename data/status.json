@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-10-29 12:19:17",
+  "last_update": "2026-10-29 22:27:36",
   "sites": [
     {
       "name": "Algorel",
@@ -7,8 +7,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/algorel.png",
-      "render_time_ms": 1823,
-      "last_check": "2026-10-29 12:18:59"
+      "render_time_ms": 2131,
+      "last_check": "2026-10-29 22:27:13"
     },
     {
       "name": "Au Fil Du Bain",
@@ -16,8 +16,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/au-fil-du-bain.png",
-      "render_time_ms": 4726,
-      "last_check": "2026-10-29 12:19:02"
+      "render_time_ms": 5891,
+      "last_check": "2026-10-29 22:27:16"
     },
     {
       "name": "Bleu Rouge",
@@ -25,8 +25,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/bleu-rouge.png",
-      "render_time_ms": 6883,
-      "last_check": "2026-10-29 12:19:08"
+      "render_time_ms": 8878,
+      "last_check": "2026-10-29 22:27:23"
     },
     {
       "name": "IIS Commande de Cable",
@@ -34,8 +34,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/iis-commande-de-cable.png",
-      "render_time_ms": 598,
-      "last_check": "2026-10-29 12:19:16"
+      "render_time_ms": 793,
+      "last_check": "2026-10-29 22:27:34"
     }
   ]
 }
