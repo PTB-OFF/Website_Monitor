@@ -1,32 +1,32 @@
 {
-  "last_update": "2026-11-01 04:28:51",
+  "last_update": "2026-11-01 12:41:35",
   "sites": [
     {
       "name": "Algorel",
       "url": "https://www.algorel.fr",
-      "status": "online",
-      "http_code": 200,
+      "status": "down",
+      "http_code": 500,
       "screenshot": "screenshots/algorel.png",
-      "render_time_ms": 1619,
-      "last_check": "2026-11-01 04:28:34"
+      "render_time_ms": 332,
+      "last_check": "2026-11-01 12:41:29"
     },
     {
       "name": "Au Fil Du Bain",
       "url": "https://www.aufildubain.fr",
-      "status": "online",
-      "http_code": 200,
+      "status": "down",
+      "http_code": 500,
       "screenshot": "screenshots/au-fil-du-bain.png",
-      "render_time_ms": 4502,
-      "last_check": "2026-11-01 04:28:36"
+      "render_time_ms": 319,
+      "last_check": "2026-11-01 12:41:30"
     },
     {
       "name": "Bleu Rouge",
       "url": "https://www.bleurouge.fr/",
-      "status": "online",
-      "http_code": 200,
+      "status": "down",
+      "http_code": 500,
       "screenshot": "screenshots/bleu-rouge.png",
-      "render_time_ms": 6764,
-      "last_check": "2026-11-01 04:28:42"
+      "render_time_ms": 320,
+      "last_check": "2026-11-01 12:41:31"
     },
     {
       "name": "IIS Commande de Cable",
@@ -34,8 +34,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/iis-commande-de-cable.png",
-      "render_time_ms": 667,
-      "last_check": "2026-11-01 04:28:50"
+      "render_time_ms": 666,
+      "last_check": "2026-11-01 12:41:32"
     }
   ]
 }
