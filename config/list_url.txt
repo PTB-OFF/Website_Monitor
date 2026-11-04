@@ -15,3 +15,5 @@ Algorel, https://www.algorel.fr
 Au Fil Du Bain, https://www.aufildubain.fr
 Bleu Rouge, https://www.bleurouge.fr/
 IIS Commande de Cable, https://achats-groupes.algorel.fr/
+PROD Génie Climatique Connect 26 | 27, https://genie-climatique-connect-26-27.algorel.fr/algorel/
+PREPROD Génie Climatique Connect 26 | 27, https://preprod-genie-climatique-connect-26-27.algorel.fr/algorel/
