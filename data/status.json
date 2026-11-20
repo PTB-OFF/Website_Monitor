@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-11-20 14:55:10",
+  "last_update": "2026-11-20 23:41:36",
   "sites": [
     {
       "name": "Algorel",
@@ -7,8 +7,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/algorel.png",
-      "render_time_ms": 2168,
-      "last_check": "2026-11-20 14:54:39"
+      "render_time_ms": 2443,
+      "last_check": "2026-11-20 23:41:02"
     },
     {
       "name": "Au Fil Du Bain",
@@ -16,8 +16,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/au-fil-du-bain.png",
-      "render_time_ms": 6069,
-      "last_check": "2026-11-20 14:54:43"
+      "render_time_ms": 7168,
+      "last_check": "2026-11-20 23:41:06"
     },
     {
       "name": "Bleu Rouge",
@@ -25,8 +25,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/bleu-rouge.png",
-      "render_time_ms": 8867,
-      "last_check": "2026-11-20 14:54:50"
+      "render_time_ms": 10781,
+      "last_check": "2026-11-20 23:41:14"
     },
     {
       "name": "IIS Commande de Cable",
@@ -34,8 +34,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/iis-commande-de-cable.png",
-      "render_time_ms": 797,
-      "last_check": "2026-11-20 14:55:00"
+      "render_time_ms": 1087,
+      "last_check": "2026-11-20 23:41:26"
     },
     {
       "name": "PROD Génie Climatique Connect 26 | 27",
@@ -43,8 +43,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/prod-genie-climatique-connect-26-27.png",
-      "render_time_ms": 3600,
-      "last_check": "2026-11-20 14:55:02"
+      "render_time_ms": 2805,
+      "last_check": "2026-11-20 23:41:29"
     },
     {
       "name": "PREPROD Génie Climatique Connect 26 | 27",
@@ -52,8 +52,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/preprod-genie-climatique-connect-26-27.png",
-      "render_time_ms": 2570,
-      "last_check": "2026-11-20 14:55:07"
+      "render_time_ms": 2811,
+      "last_check": "2026-11-20 23:41:32"
     }
   ]
 }
