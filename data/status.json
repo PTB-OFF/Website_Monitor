@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-11-20 00:22:23",
+  "last_update": "2026-11-20 14:55:10",
   "sites": [
     {
       "name": "Algorel",
@@ -7,8 +7,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/algorel.png",
-      "render_time_ms": 1764,
-      "last_check": "2026-11-20 00:21:56"
+      "render_time_ms": 2168,
+      "last_check": "2026-11-20 14:54:39"
     },
     {
       "name": "Au Fil Du Bain",
@@ -16,8 +16,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/au-fil-du-bain.png",
-      "render_time_ms": 5193,
-      "last_check": "2026-11-20 00:21:59"
+      "render_time_ms": 6069,
+      "last_check": "2026-11-20 14:54:43"
     },
     {
       "name": "Bleu Rouge",
@@ -25,8 +25,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/bleu-rouge.png",
-      "render_time_ms": 7728,
-      "last_check": "2026-11-20 00:22:05"
+      "render_time_ms": 8867,
+      "last_check": "2026-11-20 14:54:50"
     },
     {
       "name": "IIS Commande de Cable",
@@ -35,7 +35,7 @@
       "http_code": 200,
       "screenshot": "screenshots/iis-commande-de-cable.png",
       "render_time_ms": 797,
-      "last_check": "2026-11-20 00:22:14"
+      "last_check": "2026-11-20 14:55:00"
     },
     {
       "name": "PROD Génie Climatique Connect 26 | 27",
@@ -43,8 +43,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/prod-genie-climatique-connect-26-27.png",
-      "render_time_ms": 2952,
-      "last_check": "2026-11-20 00:22:15"
+      "render_time_ms": 3600,
+      "last_check": "2026-11-20 14:55:02"
     },
     {
       "name": "PREPROD Génie Climatique Connect 26 | 27",
@@ -52,8 +52,8 @@
       "status": "online",
       "http_code": 200,
       "screenshot": "screenshots/preprod-genie-climatique-connect-26-27.png",
-      "render_time_ms": 3043,
-      "last_check": "2026-11-20 00:22:19"
+      "render_time_ms": 2570,
+      "last_check": "2026-11-20 14:55:07"
     }
   ]
 }
